@@ -224,16 +224,23 @@ class Manager:
         return total_deposits - total_due
 
     def get_annual_balance(self, year: int) -> float:
-        """Calculate the annual balance for a given year.
+        """
+        Calculate the annual balance for a given year based on transfers and bills.
 
         Args:
         ----
-            year (int): The calendar year to calculate (e.g., 2025).
+            year (int): The year for which to calculate the balance.
 
         Returns:
         -------
-            float: Total income from transfers minus total costs from bills.
+            float: The annual balance.
 
+        Example:
+        --------
+            >>> parameters = Parameters()
+            >>> manager = Manager(parameters)
+            >>> manager.get_annual_balance(year=2025)
+            6490.0
         """
         total_income = sum(
             transfer.amount_pln
